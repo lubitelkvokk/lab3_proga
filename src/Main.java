@@ -1,5 +1,4 @@
 import actors.*;
-import devices.Device;
 import devices.Magnet;
 import devices.WeightlessDevice;
 import items.AntiLunit;
@@ -26,24 +25,19 @@ public class Main {
         Rover rover = new Rover();
         Forest forest = new Forest();
         ConstructionSite site = new ConstructionSite();
-        Magnet magnet = new Magnet();
-        WeightlessDevice weightlessDevice = new WeightlessDevice();
+        Magnet magnet = new Magnet(234234234);
+        WeightlessDevice weightlessDevice = new WeightlessDevice(534235516);
         Lunit lunit1 = new Lunit(25);
         Lunit lunit2 = new Lunit(35);
         AntiLunit antiLunit = new AntiLunit(20);
         Spaceship spaceship = new Spaceship();
 
 
-
-
-
-        Vintik vintik = new Vintik(site);
-        Shpuntik shpuntik = new Shpuntik(site);
-        Znayka znayka = new Znayka(spaceship);
-        Fuchsia fuchsia = new Fuchsia(spaceship);
-        Seledochka seledochka = new Seledochka(spaceship);
-
-
+        Vintik vintik = new Vintik(20,"Milky Way",site);
+        Shpuntik shpuntik = new Shpuntik(19, "Milky Way",site);
+        Znayka znayka = new Znayka(22, "Milky Way", spaceship);
+        Fuchsia fuchsia = new Fuchsia(18,"Milky Way", spaceship);
+        Seledochka seledochka = new Seledochka(20, "Milky Way", spaceship);
 
 
         // Как только Винтик и Шпунтик очутились в лесу со своим вездеходом,
@@ -86,8 +80,13 @@ public class Main {
         znayka.detectCrystalDependence(lunit2);
         seledochka.detectCrystalDependence(lunit2);
         fuchsia.detectCrystalDependence(lunit2);
-
+        // Поместив кристалл лунита между полюсами подковообразного магнита,
+        // Фуксия обнаружила, что зона невесомости перестала распространяться во все стороны,
+        // а распространяется лишь в одном направлении, на манер светового луча.
         fuchsia.setCrystal(lunit1, magnet);
         fuchsia.detectFeatureLunit();
+
+        Znayka znayka1 = new Znayka(22, "Milky Way", spaceship);
+        System.out.println(znayka1.equals(znayka));
     }
 }

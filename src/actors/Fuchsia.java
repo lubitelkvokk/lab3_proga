@@ -9,10 +9,9 @@ import location.Location;
 import specialties.Researchers;
 
 public class Fuchsia extends Person implements Researchers {
-    public Fuchsia(Location location) {
-        super(location);
+    public Fuchsia(int age, String nativeGalaxy, Location location) {
+        super(age, nativeGalaxy, location);
     }
-
     @Override
     public void research(LunarCrystal lunarCrystal) {
         System.out.println("Fuchsia исследует свойства " + lunarCrystal.getClass().getSimpleName());

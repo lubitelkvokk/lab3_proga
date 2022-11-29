@@ -6,6 +6,9 @@ import items.Lunit;
 public class WeightlessDevice extends Device {
 
 
+    public WeightlessDevice(int serialNumber) {
+        super(serialNumber);
+    }
 
     public void setCrystal(LunarCrystal lunarCrystal) {
         this.lunarCrystal = lunarCrystal;
@@ -18,3 +21,4 @@ public class WeightlessDevice extends Device {
     }
 
 }
+

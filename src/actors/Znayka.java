@@ -1,46 +1,42 @@
 package actors;
 
 import devices.Device;
-import devices.WeightlessDevice;
 import items.LunarCrystal;
 import items.Lunit;
 import location.ConstructionSite;
 import location.Location;
 import specialties.Researchers;
 
-import java.sql.SQLOutput;
-
 public class Znayka extends Person implements Researchers {
 
 
-
-    public Znayka(Location location) {
-        super(location);
+    public Znayka(int age,String galaxy, Location location) {
+        super(age, galaxy, location);
     }
 
     @Override
     public void research(LunarCrystal lunarCrystal) {
-        System.out.println("Znayka исследует свойства " + lunarCrystal.getClass().getSimpleName());
+        System.out.println("\nZnayka исследует свойства " + lunarCrystal.getClass().getSimpleName());
     }
 
     @Override
     public void setCrystal(LunarCrystal lunarCrystal, Device device) {
         System.out.println("Znayka поместил " + lunarCrystal.getClass().getSimpleName() + " в " + device.getClass().getSimpleName());
-        if (device.isServiceability()){
+        if (device.isServiceability()) {
             device.setCrystal(lunarCrystal);
         }
     }
 
     @Override
     public void detectCrystalDependence(LunarCrystal lunarCrystal) {
-        if (lunarCrystal instanceof Lunit){
+        if (lunarCrystal instanceof Lunit) {
             System.out.println("Znayka обнаружил, что величина зоны невесомости находится в прямой зависимости от величины кристалла: чем больше был кристалл, тем больше и зона");
         }
     }
 
 
     public void orderToFix(Device device, Person... people) {
-        System.out.print("\nZnayka велел");
+        System.out.print("\nZnayka велел ");
         for (Person p : people) {
             System.out.print(p.getClass().getSimpleName() + " ");
         }
@@ -69,5 +65,6 @@ public class Znayka extends Person implements Researchers {
 
         }
     }
+
 
 }

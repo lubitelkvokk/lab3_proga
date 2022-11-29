@@ -12,8 +12,8 @@ import transport.Rover;
 public class Shpuntik extends Person implements Inventors, Moveable, Passanger {
 
 
-    public Shpuntik(Location location) {
-        super(location);
+    public Shpuntik(int age, String galaxy, Location location) {
+        super(age, galaxy, location);
     }
 
     @Override

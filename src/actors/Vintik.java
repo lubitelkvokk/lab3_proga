@@ -12,8 +12,8 @@ import transport.Rover;
 public class Vintik extends Person implements Inventors, Moveable, Passanger {
 
 
-    public Vintik(Location location) {
-        super(location);
+    public Vintik(int age, String galaxy, Location location) {
+        super(age,galaxy, location);
     }
 
     @Override

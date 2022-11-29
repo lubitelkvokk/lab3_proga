@@ -12,4 +12,6 @@ public class Lunit extends LunarCrystal {
     public void setWeightlessZone() {
         System.out.println("Lunit распространяет зону невесомости на " + size * 70 + " м^2");
     }
+
+
 }
