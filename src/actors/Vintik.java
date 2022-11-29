@@ -3,7 +3,7 @@ package actors;
 import actions.Moveable;
 import actions.Passanger;
 import devices.Device;
-import items.Lumber;
+import items.lumbers.Lumber;
 import location.ConstructionSite;
 import location.Location;
 import specialties.Inventors;

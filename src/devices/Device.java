@@ -1,6 +1,6 @@
 package devices;
 
-import items.LunarCrystal;
+import items.crystals.LunarCrystal;
 
 public abstract class Device {
     protected LunarCrystal lunarCrystal;
@@ -46,5 +46,13 @@ public abstract class Device {
     @Override
     public int hashCode() {
         return serialNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "Serviceability: " + serviceability +
+                ", Serial number: " + serialNumber +
+                '}';
     }
 }

@@ -1,10 +1,9 @@
 package devices;
 
-import items.LunarCrystal;
-import items.Lunit;
+import items.crystals.LunarCrystal;
+import items.crystals.Lunit;
 
 public class Magnet extends Device {
-    LunarCrystal lunarCrystal;
 
     public Magnet(int serialNumber) {
         super(serialNumber);

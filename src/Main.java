@@ -1,9 +1,12 @@
 import actors.*;
 import devices.Magnet;
 import devices.WeightlessDevice;
-import items.AntiLunit;
-import items.Lumber;
-import items.Lunit;
+import items.crystals.AntiLunit;
+import items.crystals.properties.Colors;
+import items.crystals.properties.Density;
+import items.crystals.properties.ThermalConductivity;
+import items.lumbers.Lumber;
+import items.crystals.Lunit;
 import location.ConstructionSite;
 import location.Forest;
 import location.Spaceship;
@@ -22,21 +25,21 @@ import transport.Rover;
 public class Main {
     public static void main(String[] args) {
 
-        Rover rover = new Rover();
-        Forest forest = new Forest();
-        ConstructionSite site = new ConstructionSite();
+        Rover rover = new Rover(1324235235, 300);
+        Forest forest = new Forest(53, 91);
+        ConstructionSite site = new ConstructionSite(10, 15);
         Magnet magnet = new Magnet(234234234);
         WeightlessDevice weightlessDevice = new WeightlessDevice(534235516);
         Lunit lunit1 = new Lunit(25);
         Lunit lunit2 = new Lunit(35);
         AntiLunit antiLunit = new AntiLunit(20);
-        Spaceship spaceship = new Spaceship();
+        Spaceship spaceship = new Spaceship(25,140);
 
 
-        Vintik vintik = new Vintik(20,"Milky Way",site);
-        Shpuntik shpuntik = new Shpuntik(19, "Milky Way",site);
+        Vintik vintik = new Vintik(20, "Milky Way", site);
+        Shpuntik shpuntik = new Shpuntik(19, "Milky Way", site);
         Znayka znayka = new Znayka(22, "Milky Way", spaceship);
-        Fuchsia fuchsia = new Fuchsia(18,"Milky Way", spaceship);
+        Fuchsia fuchsia = new Fuchsia(18, "Milky Way", spaceship);
         Seledochka seledochka = new Seledochka(20, "Milky Way", spaceship);
 
 
@@ -76,17 +79,14 @@ public class Main {
         // что величина зоны невесомости находится в прямой зависимости от величины кристалла: чем больше был кристалл, тем больше была и зона.
 
         znayka.setCrystal(lunit1, weightlessDevice);
-        znayka.setCrystal(lunit2, weightlessDevice);
-        znayka.detectCrystalDependence(lunit2);
-        seledochka.detectCrystalDependence(lunit2);
-        fuchsia.detectCrystalDependence(lunit2);
+        znayka.replaceCrystal(lunit2, weightlessDevice);
+
         // Поместив кристалл лунита между полюсами подковообразного магнита,
         // Фуксия обнаружила, что зона невесомости перестала распространяться во все стороны,
         // а распространяется лишь в одном направлении, на манер светового луча.
         fuchsia.setCrystal(lunit1, magnet);
         fuchsia.detectFeatureLunit();
 
-        Znayka znayka1 = new Znayka(22, "Milky Way", spaceship);
-        System.out.println(znayka1.equals(znayka));
+
     }
 }

@@ -5,8 +5,12 @@ import devices.Device;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spaceship extends Location{
+public class Spaceship extends Location {
     private List<Device> listOfDevices = new ArrayList<Device>();
+
+    public Spaceship(int x, int y) {
+        super(x, y);
+    }
 
     public void addDevice(Device device) {
         listOfDevices.add(device);

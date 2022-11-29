@@ -1,7 +1,7 @@
 package devices;
 
-import items.LunarCrystal;
-import items.Lunit;
+import items.crystals.LunarCrystal;
+import items.crystals.Lunit;
 
 public class WeightlessDevice extends Device {
 

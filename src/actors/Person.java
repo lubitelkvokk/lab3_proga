@@ -6,7 +6,7 @@ import location.Location;
 public abstract class Person implements Moveable {
     protected String nativeGalaxy;
     protected int age;
-    Location location;
+    protected Location location;
 
 
     public Person(int age, String nativeGalaxy, Location location) {
@@ -24,7 +24,7 @@ public abstract class Person implements Moveable {
 
     @Override
     public int hashCode() {
-        return (getClass().getSimpleName()  + nativeGalaxy).hashCode() + age * 23;
+        return nativeGalaxy.hashCode() + age * 23;
     }
 
     @Override
@@ -36,6 +36,16 @@ public abstract class Person implements Moveable {
             return false;
         }
         Person o = (Person) obj;
-        return hashCode() == obj.hashCode() && age == o.age && nativeGalaxy.equals((o.nativeGalaxy));
+        return age == o.age && nativeGalaxy.equals(o.nativeGalaxy);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name: " + getClass().getSimpleName() +
+                ", Native galaxy:" + nativeGalaxy + "" +
+                ", Age: " + age +
+                ", Location: " + location +
+                '}';
     }
 }

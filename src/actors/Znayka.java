@@ -1,8 +1,8 @@
 package actors;
 
 import devices.Device;
-import items.LunarCrystal;
-import items.Lunit;
+import items.crystals.LunarCrystal;
+import items.crystals.Lunit;
 import location.ConstructionSite;
 import location.Location;
 import specialties.Researchers;
@@ -10,7 +10,7 @@ import specialties.Researchers;
 public class Znayka extends Person implements Researchers {
 
 
-    public Znayka(int age,String galaxy, Location location) {
+    public Znayka(int age, String galaxy, Location location) {
         super(age, galaxy, location);
     }
 
@@ -32,6 +32,22 @@ public class Znayka extends Person implements Researchers {
         if (lunarCrystal instanceof Lunit) {
             System.out.println("Znayka обнаружил, что величина зоны невесомости находится в прямой зависимости от величины кристалла: чем больше был кристалл, тем больше и зона");
         }
+    }
+
+    @Override
+    public void replaceCrystal(LunarCrystal lunarCrystal, Device device) {
+        LunarCrystal prev = device.getCrystal();
+        if (prev == null) {
+            setCrystal(lunarCrystal, device);
+        } else {
+
+            System.out.println("Znayka заменил кристалл " + prev.getClass().getSimpleName() + " в " +
+                    device.getClass().getSimpleName() + " на " + lunarCrystal.getClass().getSimpleName());
+            if (device.isServiceability() && lunarCrystal.getSize() != prev.getSize() && prev instanceof Lunit && lunarCrystal instanceof Lunit) {
+                detectCrystalDependence(lunarCrystal);
+            }
+        }
+
     }
 
 
