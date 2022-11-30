@@ -1,0 +1,62 @@
+Vintik сел в Rover
+Shpuntik сел в Rover
+Rover отправляется в Forest
+Vintik отправляется в Forest
+Shpuntik отправляется в Forest
+Rover отправляется в ConstructionSite
+Vintik отправляется в ConstructionSite
+Shpuntik отправляется в ConstructionSite
+
+Shpuntik завез LOGS на стройплощадку
+LOGS поступил на ConstructionSite
+
+Shpuntik завез BEAMS на стройплощадку
+BEAMS поступил на ConstructionSite
+
+Shpuntik завез LATHS на стройплощадку
+LATHS поступил на ConstructionSite
+
+Shpuntik завез BEAMS на стройплощадку
+BEAMS поступил на ConstructionSite
+
+Shpuntik завез LATHS на стройплощадку
+LATHS поступил на ConstructionSite
+
+Shpuntik завез BEAMS на стройплощадку
+BEAMS поступил на ConstructionSite
+
+Shpuntik завез LATHS на стройплощадку
+LATHS поступил на ConstructionSite
+
+
+Vintik завез SLATS на стройплощадку
+SLATS поступил на ConstructionSite
+
+Vintik завез LATHS на стройплощадку
+LATHS поступил на ConstructionSite
+
+Vintik завез BATTENS на стройплощадку
+ConstructionSite заполнена
+
+На ConstructionSite действует невесомость. Работа с тяжестями облегчена и ускорена.
+Znayka отправляется в ConstructionSite
+Znayka увидел, что Vintik Shpuntik  завалили стройплощадку пиломатериалами
+Znayka велел Vintik Shpuntik  остановиться
+Lunatic испортил Magnet
+Lunatic испортил WeightlessDevice
+Znayka велел Vintik Shpuntik  починить Magnet
+Znayka велел Vintik Shpuntik  починить WeightlessDevice
+На расстоянии 2.0 м^2 от Antilunit гравитационное поле прекращает действие
+Znayka исследует свойства Lunit
+Znayka исследует свойства AntiLunit
+Fuchsia исследует свойства Lunit
+Fuchsia исследует свойства AntiLunit
+Seledochka исследует свойства Lunit
+Seledochka исследует свойства AntiLunit
+Znayka поместил Lunit в WeightlessDevice
+Lunit распространяет зону невесомости на 1750.0 м^2
+Znayka заменил кристалл Lunit в WeightlessDevice на Lunit
+Znayka обнаружил, что величина зоны невесомости находится в прямой зависимости от величины кристалла: чем больше был кристалл, тем больше и зона
+Fuchsia поместилa Lunit в Magnet
+Lunit распространяет невесомость на манер светового луча с углом 7.5
+Fuchsia обнаружила, что зона невесомости перестала распространяться во все стороны, а распространяется лишь в одном направлении, на манер светового луча.
