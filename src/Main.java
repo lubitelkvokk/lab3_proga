@@ -2,14 +2,10 @@ import actors.*;
 import devices.Magnet;
 import devices.WeightlessDevice;
 import items.crystals.AntiLunit;
-import items.crystals.properties.Colors;
-import items.crystals.properties.Density;
-import items.crystals.properties.ThermalConductivity;
-import items.lumbers.Lumber;
 import items.crystals.Lunit;
-import location.ConstructionSite;
-import location.Forest;
-import location.Spaceship;
+import items.lumbers.Lumber;
+import location.Location;
+import location.TypeOfLocation;
 import transport.Rover;
 
 
@@ -26,15 +22,14 @@ public class Main {
     public static void main(String[] args) {
 
         Rover rover = new Rover(1324235235, 300);
-        Forest forest = new Forest(53, 91);
-        ConstructionSite site = new ConstructionSite(10, 15);
+        Location forest = new Location(TypeOfLocation.FOREST, 53, 91);
+        Location site = new Location(TypeOfLocation.CONSTRUCTION_SITE, 10, 15);
         Magnet magnet = new Magnet(234234234);
         WeightlessDevice weightlessDevice = new WeightlessDevice(534235516);
         Lunit lunit1 = new Lunit(25);
         Lunit lunit2 = new Lunit(35);
 
-        Spaceship spaceship = new Spaceship(25,140);
-
+        Location spaceship = new Location(TypeOfLocation.SPACESHIP, 234, 25);
 
         Vintik vintik = new Vintik(20, "Milky Way", site);
         Shpuntik shpuntik = new Shpuntik(19, "Milky Way", site);
@@ -91,7 +86,6 @@ public class Main {
         // а распространяется лишь в одном направлении, на манер светового луча.
         fuchsia.setCrystal(lunit1, magnet);
         fuchsia.detectFeatureLunit();
-
 
 
     }

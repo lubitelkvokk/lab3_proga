@@ -3,8 +3,8 @@ package actors;
 import devices.Device;
 import items.crystals.LunarCrystal;
 import items.crystals.Lunit;
-import location.ConstructionSite;
 import location.Location;
+import location.TypeOfLocation;
 import specialties.Researchers;
 
 public class Znayka extends Person implements Researchers {
@@ -77,14 +77,13 @@ public class Znayka extends Person implements Researchers {
 
 
     public void seeSituationOnSite(Person... people) {
-        if (location instanceof ConstructionSite) {
-            ConstructionSite site = (ConstructionSite) location;
-            if (site.getFullness()) {
+        if (location.getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
+            if (location.getFullness()) {
                 System.out.print("Znayka увидел, что ");
                 for (Person p : people) {
                     System.out.print(p.getClass().getSimpleName() + " ");
                 }
-                System.out.println(" завалили стройплощадку пиломатериалами");
+                System.out.println(" завалили CONSTRUCTION_SITE пиломатериалами");
             }
 
         }

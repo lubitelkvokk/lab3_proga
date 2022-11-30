@@ -4,8 +4,8 @@ import actions.Moveable;
 import actions.Passanger;
 import devices.Device;
 import items.lumbers.Lumber;
-import location.ConstructionSite;
 import location.Location;
+import location.TypeOfLocation;
 import specialties.Inventors;
 import transport.Rover;
 
@@ -43,12 +43,11 @@ public class Shpuntik extends Person implements Inventors, Moveable, Passanger {
     }
 
     public void clutterSite(Lumber... lumber) {
-        if (location instanceof ConstructionSite) {
+        if (location.getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
 
-            ConstructionSite site = (ConstructionSite) location;
             for (Lumber l : lumber) {
-                System.out.println("\nShpuntik завез " + l.name() + " на стройплощадку");
-                site.addLumber(l);
+                System.out.println("\nShpuntik завез " + l.name() + " на " + location.getTypeOfLocation());
+                location.addLumber(l);
             }
 
         }

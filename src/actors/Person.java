@@ -24,7 +24,7 @@ public abstract class Person implements Moveable {
 
     @Override
     public void goToLocation(Location location) {
-        System.out.println(this.getClass().getSimpleName() + " отправляется в " + location.getClass().getSimpleName());
+        System.out.println(this.getClass().getSimpleName() + " отправляется в " + location.getTypeOfLocation());
         this.location = location;
     }
 

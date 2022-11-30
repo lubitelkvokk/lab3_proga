@@ -23,7 +23,7 @@ public class Rover implements Moveable {
     public void goToLocation(Location location) {
         if (!passangers.isEmpty()) {
             this.location = location;
-            System.out.println("Rover отправляется в " + location.getClass().getSimpleName());
+            System.out.println("Rover отправляется в " + location.getTypeOfLocation().name());
             for (Passanger p : passangers) {
                 ((Person) p).goToLocation(location);
             }

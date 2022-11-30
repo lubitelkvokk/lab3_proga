@@ -4,8 +4,8 @@ import actions.Moveable;
 import actions.Passanger;
 import devices.Device;
 import items.lumbers.Lumber;
-import location.ConstructionSite;
 import location.Location;
+import location.TypeOfLocation;
 import specialties.Inventors;
 import transport.Rover;
 
@@ -42,19 +42,18 @@ public class Vintik extends Person implements Inventors, Moveable, Passanger {
     }
 
     public void clutterSite(Lumber... lumber) {
-        if (location instanceof ConstructionSite) {
+        if (location.getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
             System.out.println();
-            ConstructionSite site = (ConstructionSite) location;
             for (Lumber l : lumber) {
-                System.out.println("\nVintik завез " + l.name() + " на стройплощадку");
-                site.addLumber(l);
+                System.out.println("\nVintik завез " + l.name() + " на " + location.getTypeOfLocation());
+                location.addLumber(l);
             }
             System.out.println();
         }
     }
 
 
-    }
+}
 
 
 

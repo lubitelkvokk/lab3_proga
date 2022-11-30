@@ -2,17 +2,20 @@ package location;
 
 import actors.Person;
 import devices.Device;
-
-import java.util.ArrayList;
-import java.util.List;
+import items.lumbers.Lumber;
 
 public class Location {
-    protected List<Person> listOfPeople = new ArrayList<Person>();
-    protected List<Device> listOfDevices = new ArrayList<Device>();
     protected boolean weightless;
     protected int x, y;
+    protected StorageLocation storageLocation = new StorageLocation();
+    protected TypeOfLocation typeOfLocation;
 
-    public Location(int x, int y) {
+    public TypeOfLocation getTypeOfLocation() {
+        return typeOfLocation;
+    }
+
+    public Location(TypeOfLocation typeOfLocation, int x, int y) {
+        this.typeOfLocation = typeOfLocation;
         this.x = x;
         this.y = y;
     }
@@ -27,18 +30,34 @@ public class Location {
     }
 
     public void addPeople(Person person) {
-        this.listOfPeople.add(person);
+        storageLocation.addPeople(person);
     }
 
     public void removePeople(Person person) {
-        this.listOfPeople.remove(person);
+        storageLocation.removePeople(person);
     }
 
+    public void addDevice(Device device) {
+        storageLocation.addDevice(device);
+    }
+
+    public void removeDevice(Device device) {
+        storageLocation.removeDevice(device);
+    }
+
+
+    public boolean getFullness() {
+        return storageLocation.getFullness();
+    }
+
+    public void addLumber(Lumber lumber) {
+        storageLocation.addLumber(lumber);
+    }
 
     @Override
     public String toString() {
         return "Location{" +
-                "listOfPeople: " + listOfPeople +
+                "listOfPeople: " + storageLocation.listOfPeople +
                 ", weightless: " + weightless +
                 '}';
     }
