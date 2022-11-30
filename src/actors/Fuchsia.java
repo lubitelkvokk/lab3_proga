@@ -7,6 +7,14 @@ import location.Location;
 import specialties.Researchers;
 
 public class Fuchsia extends Person implements Researchers {
+    public Fuchsia() {
+    }
+
+
+    public Fuchsia(String nativeGalaxy, Location location) {
+        super(nativeGalaxy, location);
+    }
+
     public Fuchsia(int age, String nativeGalaxy, Location location) {
         super(age, nativeGalaxy, location);
     }

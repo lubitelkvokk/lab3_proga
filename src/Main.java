@@ -32,7 +32,7 @@ public class Main {
         WeightlessDevice weightlessDevice = new WeightlessDevice(534235516);
         Lunit lunit1 = new Lunit(25);
         Lunit lunit2 = new Lunit(35);
-        AntiLunit antiLunit = new AntiLunit(20);
+
         Spaceship spaceship = new Spaceship(25,140);
 
 
@@ -41,7 +41,7 @@ public class Main {
         Znayka znayka = new Znayka(22, "Milky Way", spaceship);
         Fuchsia fuchsia = new Fuchsia(18, "Milky Way", spaceship);
         Seledochka seledochka = new Seledochka(20, "Milky Way", spaceship);
-
+        Lunatic lunatic = new Lunatic();
 
         // Как только Винтик и Шпунтик очутились в лесу со своим вездеходом,
         // на строительную площадку непрерывным потоком начали поступать бревна, брусья, доски, планки, рейки, штакетник и другие пиломатериалы.
@@ -64,10 +64,15 @@ public class Main {
         znayka.goToLocation(site);
         znayka.seeSituationOnSite(vintik, shpuntik);
         znayka.orderToStop(vintik, shpuntik);
+        lunatic.crashDevices(magnet, weightlessDevice);
         znayka.orderToFix(magnet, vintik, shpuntik);
+        znayka.orderToFix(weightlessDevice, vintik, shpuntik);
+        vintik.fixDevice(magnet);
+        shpuntik.fixDevice(weightlessDevice);
         //
 
         // Сам Знайка вместе с Фуксией и Селедочкой были заняты исследованием свойств лунита и антилунита.
+        AntiLunit antiLunit = new AntiLunit(20);
         znayka.research(lunit1);
         znayka.research(antiLunit);
         fuchsia.research(lunit1);
@@ -86,6 +91,7 @@ public class Main {
         // а распространяется лишь в одном направлении, на манер светового луча.
         fuchsia.setCrystal(lunit1, magnet);
         fuchsia.detectFeatureLunit();
+
 
 
     }

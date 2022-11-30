@@ -7,6 +7,14 @@ import location.Location;
 import specialties.Researchers;
 
 public class Seledochka extends Person implements Researchers {
+    public Seledochka() {
+    }
+
+
+    public Seledochka(String nativeGalaxy, Location location) {
+        super(nativeGalaxy, location);
+    }
+
     public Seledochka(int age, String nativeGalaxy, Location location) {
         super(age, nativeGalaxy, location);
     }
@@ -51,7 +59,6 @@ public class Seledochka extends Person implements Researchers {
     public int hashCode() {
         return super.hashCode();
     }
-
 
 
     //    @Override

@@ -8,11 +8,18 @@ public abstract class Person implements Moveable {
     protected int age;
     protected Location location;
 
+    public Person() {
+    }
 
-    public Person(int age, String nativeGalaxy, Location location) {
-        this.age = age;
+
+    public Person(String nativeGalaxy, Location location) {
         this.nativeGalaxy = nativeGalaxy;
         this.location = location;
+    }
+
+    public Person(int age, String nativeGalaxy, Location location) {
+        this(nativeGalaxy, location);
+        this.age = age;
     }
 
     @Override

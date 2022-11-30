@@ -9,14 +9,22 @@ import specialties.Researchers;
 
 public class Znayka extends Person implements Researchers {
 
+    public Znayka() {
+    }
 
-    public Znayka(int age, String galaxy, Location location) {
-        super(age, galaxy, location);
+
+    public Znayka(String nativeGalaxy, Location location) {
+        super(nativeGalaxy, location);
+    }
+
+    public Znayka(int age, String nativeGalaxy, Location location) {
+        super(age, nativeGalaxy, location);
     }
 
     @Override
     public void research(LunarCrystal lunarCrystal) {
-        System.out.println("\nZnayka исследует свойства " + lunarCrystal.getClass().getSimpleName());
+        System.out.println("Znayka исследует свойства " + lunarCrystal.getClass().getSimpleName());
+
     }
 
     @Override
@@ -52,19 +60,19 @@ public class Znayka extends Person implements Researchers {
 
 
     public void orderToFix(Device device, Person... people) {
-        System.out.print("\nZnayka велел ");
+        System.out.print("Znayka велел ");
         for (Person p : people) {
             System.out.print(p.getClass().getSimpleName() + " ");
         }
-        System.out.print(" починить " + device.getClass().getSimpleName());
+        System.out.println(" починить " + device.getClass().getSimpleName());
     }
 
     public void orderToStop(Person... people) {
-        System.out.print("\nZnayka велел");
+        System.out.print("Znayka велел ");
         for (Person p : people) {
             System.out.print(p.getClass().getSimpleName() + " ");
         }
-        System.out.print(" остановиться");
+        System.out.println(" остановиться");
     }
 
 
