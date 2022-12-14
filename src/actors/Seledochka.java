@@ -10,7 +10,6 @@ public class Seledochka extends Person implements Researchers {
     public Seledochka() {
     }
 
-
     public Seledochka(String nativeGalaxy, Location location) {
         super(nativeGalaxy, location);
     }
@@ -55,14 +54,4 @@ public class Seledochka extends Person implements Researchers {
         }
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-
-    //    @Override
-//    public boolean equals(Object o){
-//
-//    }
 }

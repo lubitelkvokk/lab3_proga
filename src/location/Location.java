@@ -4,20 +4,21 @@ import actors.Person;
 import devices.Device;
 import items.lumbers.Lumber;
 
+// TODO
 public class Location {
-    protected boolean weightless;
-    protected int x, y;
-    protected StorageLocation storageLocation = new StorageLocation();
-    protected TypeOfLocation typeOfLocation;
-
-    public TypeOfLocation getTypeOfLocation() {
-        return typeOfLocation;
-    }
+    private boolean weightless;
+    private int x, y;
+    private StorageLocation storageLocation = new StorageLocation();
+    private TypeOfLocation typeOfLocation;
 
     public Location(TypeOfLocation typeOfLocation, int x, int y) {
         this.typeOfLocation = typeOfLocation;
         this.x = x;
         this.y = y;
+    }
+
+    public TypeOfLocation getTypeOfLocation() {
+        return typeOfLocation;
     }
 
     public boolean getWeightless() {
@@ -64,7 +65,7 @@ public class Location {
 
     @Override
     public int hashCode() {
-        return x * 257 + y * 139;
+        return x * 257 + y * 139 + typeOfLocation.hashCode() >> 3;
     }
 
     @Override
@@ -72,11 +73,13 @@ public class Location {
         if (this == obj) {
             return true;
         }
+
         if (obj == null || obj.getClass() != getClass()) {
             return false;
         }
+
         Location o = (Location) obj;
-        return x == o.x && y == o.y;
+        return x == o.x && y == o.y && typeOfLocation == o.typeOfLocation;
     }
 
 }

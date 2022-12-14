@@ -1,4 +1,6 @@
+import actions.Passenger;
 import actors.*;
+import devices.Device;
 import devices.Magnet;
 import devices.WeightlessDevice;
 import items.crystals.AntiLunit;
@@ -22,13 +24,16 @@ public class Main {
     public static void main(String[] args) {
 
         Rover rover = new Rover(1324235235, 300);
+        //Rover.HandleBar handleBar = rover.new HandleBar();
         Location forest = new Location(TypeOfLocation.FOREST, 53, 91);
         Location site = new Location(TypeOfLocation.CONSTRUCTION_SITE, 10, 15);
         Magnet magnet = new Magnet(234234234);
         WeightlessDevice weightlessDevice = new WeightlessDevice(534235516);
         Lunit lunit1 = new Lunit(25);
+        lunit1.setWeightlessRay();
         Lunit lunit2 = new Lunit(35);
 
+        lunit1.getColor();
         Location spaceship = new Location(TypeOfLocation.SPACESHIP, 234, 25);
 
         Vintik vintik = new Vintik(20, "Milky Way", site);
@@ -37,6 +42,7 @@ public class Main {
         Fuchsia fuchsia = new Fuchsia(18, "Milky Way", spaceship);
         Seledochka seledochka = new Seledochka(20, "Milky Way", spaceship);
         Lunatic lunatic = new Lunatic();
+
 
         // Как только Винтик и Шпунтик очутились в лесу со своим вездеходом,
         // на строительную площадку непрерывным потоком начали поступать бревна, брусья, доски, планки, рейки, штакетник и другие пиломатериалы.
@@ -87,6 +93,13 @@ public class Main {
         fuchsia.setCrystal(lunit1, magnet);
         fuchsia.detectFeatureLunit();
 
+//        Func func = (a, b) -> {
+//            b = a + 5;
+//            return (a * b);
+//        };
+//        Func func1 = (a, b) -> a * b;
+        //             |         |
+        //        конструктор   метод
 
     }
 }

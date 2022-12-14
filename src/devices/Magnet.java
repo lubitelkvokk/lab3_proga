@@ -15,7 +15,6 @@ public class Magnet extends Device {
             if (lunarCrystal instanceof Lunit) {
                 ((Lunit) lunarCrystal).setWeightlessRay();
             }
-
         }
     }
 }

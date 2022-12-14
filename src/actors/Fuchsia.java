@@ -10,7 +10,6 @@ public class Fuchsia extends Person implements Researchers {
     public Fuchsia() {
     }
 
-
     public Fuchsia(String nativeGalaxy, Location location) {
         super(nativeGalaxy, location);
     }

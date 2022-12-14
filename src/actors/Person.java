@@ -4,8 +4,8 @@ import actions.Moveable;
 import location.Location;
 
 public abstract class Person implements Moveable {
-    protected String nativeGalaxy;
-    protected int age;
+    private String nativeGalaxy;
+    private int age;
     protected Location location;
 
     public Person() {
@@ -31,7 +31,7 @@ public abstract class Person implements Moveable {
 
     @Override
     public int hashCode() {
-        return nativeGalaxy.hashCode() + age * 23;
+        return nativeGalaxy.hashCode() + age * 21;
     }
 
     @Override

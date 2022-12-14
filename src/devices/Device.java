@@ -31,6 +31,7 @@ public abstract class Device {
         return serviceability;
     }
 
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

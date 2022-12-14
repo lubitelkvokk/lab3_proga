@@ -1,7 +1,7 @@
 package actors;
 
 import actions.Moveable;
-import actions.Passanger;
+import actions.Passenger;
 import devices.Device;
 import items.lumbers.Lumber;
 import location.Location;
@@ -9,11 +9,10 @@ import location.TypeOfLocation;
 import specialties.Inventors;
 import transport.Rover;
 
-public class Shpuntik extends Person implements Inventors, Moveable, Passanger {
+public class Shpuntik extends Person implements Inventors, Moveable, Passenger {
 
     public Shpuntik() {
     }
-
 
     public Shpuntik(String nativeGalaxy, Location location) {
         super(nativeGalaxy, location);
@@ -22,12 +21,11 @@ public class Shpuntik extends Person implements Inventors, Moveable, Passanger {
     public Shpuntik(int age, String nativeGalaxy, Location location) {
         super(age, nativeGalaxy, location);
     }
+
     @Override
     public void fixDevice(Device device) {
         device.fixDevice();
     }
-
-
 
 
     @Override

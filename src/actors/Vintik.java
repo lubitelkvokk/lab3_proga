@@ -1,7 +1,7 @@
 package actors;
 
 import actions.Moveable;
-import actions.Passanger;
+import actions.Passenger;
 import devices.Device;
 import items.lumbers.Lumber;
 import location.Location;
@@ -9,7 +9,7 @@ import location.TypeOfLocation;
 import specialties.Inventors;
 import transport.Rover;
 
-public class Vintik extends Person implements Inventors, Moveable, Passanger {
+public class Vintik extends Person implements Inventors, Moveable, Passenger {
 
 
     public Vintik() {

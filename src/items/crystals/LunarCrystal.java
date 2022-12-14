@@ -1,24 +1,53 @@
 package items.crystals;
 
-import items.crystals.properties.Colors;
-import items.crystals.properties.Density;
-import items.crystals.properties.DepositDepth;
-import items.crystals.properties.ThermalConductivity;
+import items.crystals.properties.*;
+
+
+import java.awt.*;
 
 public abstract class LunarCrystal {
-    protected double size;
-    protected Colors color;
-    protected ThermalConductivity thermalConductivity;
-    protected Density density;
-    protected DepositDepth depositDepth;
+    private double size;
+    private Colors color;
+    private ThermalConductivity thermalConductivity;
+    private Density density;
+    private DepositDepth depositDepth;
 
 
-    public LunarCrystal(double size) {
+    public LunarCrystal(Colors color, ThermalConductivity thermalConductivity, Density density, DepositDepth depositDepth) {
+        this.color = color;
+        this.thermalConductivity = thermalConductivity;
+        this.density = density;
+        this.depositDepth = depositDepth;
+    }
+
+    public LunarCrystal(double size){
         this.size = size;
     }
 
+    public LunarCrystal(double size, Colors color, ThermalConductivity thermalConductivity, Density density, DepositDepth depositDepth)
+    {
+        this(color, thermalConductivity, density, depositDepth);
+        this.size = size;
+    }
     public double getSize() {
         return size;
+    }
+
+
+    public Colors getColor(){
+        return color;
+    }
+
+    public Density getDensity() {
+        return density;
+    }
+
+    public DepositDepth getDepositDepth() {
+        return depositDepth;
+    }
+
+    public ThermalConductivity getThermalConductivity() {
+        return thermalConductivity;
     }
 
     @Override
@@ -26,8 +55,7 @@ public abstract class LunarCrystal {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass())
-        {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         LunarCrystal obj = (LunarCrystal) o;
