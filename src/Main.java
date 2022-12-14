@@ -21,6 +21,7 @@ import transport.Rover;
 
 
 public class Main {
+
     public static void main(String[] args) {
 
         Rover rover = new Rover(1324235235, 300);
@@ -92,6 +93,7 @@ public class Main {
         // а распространяется лишь в одном направлении, на манер светового луча.
         fuchsia.setCrystal(lunit1, magnet);
         fuchsia.detectFeatureLunit();
+
 
 //        Func func = (a, b) -> {
 //            b = a + 5;

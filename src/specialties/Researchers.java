@@ -4,11 +4,11 @@ import devices.Device;
 import items.crystals.LunarCrystal;
 
 public interface Researchers {
-    public void research(LunarCrystal lunarCrystal);
+    void research(LunarCrystal lunarCrystal);
 
-    public void setCrystal(LunarCrystal lunarCrystal, Device device);
+    void setCrystal(LunarCrystal lunarCrystal, Device device);
 
-    public void detectCrystalDependence(LunarCrystal lunarCrystal);
+    void detectCrystalDependence(LunarCrystal lunarCrystal);
 
-    public void replaceCrystal(LunarCrystal lunarCrystal, Device device);
+    void replaceCrystal(LunarCrystal lunarCrystal, Device device);
 }

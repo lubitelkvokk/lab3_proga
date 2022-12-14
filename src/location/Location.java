@@ -7,9 +7,9 @@ import items.lumbers.Lumber;
 // TODO
 public class Location {
     private boolean weightless;
-    private int x, y;
-    private StorageLocation storageLocation = new StorageLocation();
-    private TypeOfLocation typeOfLocation;
+    private final int x, y;
+    private final StorageLocation storageLocation = new StorageLocation();
+    private final TypeOfLocation typeOfLocation;
 
     public Location(TypeOfLocation typeOfLocation, int x, int y) {
         this.typeOfLocation = typeOfLocation;
