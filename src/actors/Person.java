@@ -6,7 +6,7 @@ import location.Location;
 public abstract class Person implements Moveable {
     private String nativeGalaxy;
     private int age;
-    protected Location location;
+    private Location location;
 
     public Person() {
     }
@@ -22,10 +22,16 @@ public abstract class Person implements Moveable {
         this.age = age;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
     @Override
     public void goToLocation(Location location) {
         System.out.println(this.getClass().getSimpleName() + " отправляется в " + location.getTypeOfLocation());
+        this.location.removePeople(this);
         this.location = location;
+        location.addPeople(this);
     }
 
 

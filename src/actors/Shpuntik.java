@@ -41,11 +41,11 @@ public class Shpuntik extends Person implements Inventors, Moveable, Passenger {
     }
 
     public void clutterSite(Lumber... lumber) {
-        if (location.getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
+        if (getLocation().getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
 
             for (Lumber l : lumber) {
-                System.out.println("\nShpuntik завез " + l.name() + " на " + location.getTypeOfLocation());
-                location.addLumber(l);
+                System.out.println("\nShpuntik завез " + l.name() + " на " + getLocation().getTypeOfLocation());
+                getLocation().addLumber(l);
             }
 
         }

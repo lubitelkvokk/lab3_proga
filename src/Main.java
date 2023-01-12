@@ -1,14 +1,14 @@
-import actions.Passenger;
 import actors.*;
-import devices.Device;
 import devices.Magnet;
-import devices.WeightlessDevice;
+import devices.WeightlessProDevice;
 import items.crystals.AntiLunit;
 import items.crystals.Lunit;
 import items.lumbers.Lumber;
 import location.Location;
 import location.TypeOfLocation;
 import transport.Rover;
+import transport.exceptions.TankOverflowException;
+import transport.fuelType.FuelType;
 
 
 // Как только Винтик и Шпунтик очутились в лесу со своим вездеходом, на строительную площадку непрерывным потоком начали поступать бревна, брусья, доски, планки, рейки, штакетник и другие пиломатериалы.
@@ -24,21 +24,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Rover rover = new Rover(1324235235, 300);
+
         //Rover.HandleBar handleBar = rover.new HandleBar();
         Location forest = new Location(TypeOfLocation.FOREST, 53, 91);
         Location site = new Location(TypeOfLocation.CONSTRUCTION_SITE, 10, 15);
         Magnet magnet = new Magnet(234234234);
-        WeightlessDevice weightlessDevice = new WeightlessDevice(534235516);
+
+
+        WeightlessProDevice weightlessDevice = new WeightlessProDevice(534235516);
         Lunit lunit1 = new Lunit(25);
         lunit1.setWeightlessRay();
         Lunit lunit2 = new Lunit(35);
 
-        lunit1.getColor();
         Location spaceship = new Location(TypeOfLocation.SPACESHIP, 234, 25);
 
         Vintik vintik = new Vintik(20, "Milky Way", site);
         Shpuntik shpuntik = new Shpuntik(19, "Milky Way", site);
+        Rover rover = new Rover(1324235235, 300, 20, site, FuelType.PETROL) {
+            @Override
+            public void changeTheTank(Tank tank) {
+                System.out.println("В данной машине не предусмотрена заменя бака");
+            }
+        };
         Znayka znayka = new Znayka(22, "Milky Way", spaceship);
         Fuchsia fuchsia = new Fuchsia(18, "Milky Way", spaceship);
         Seledochka seledochka = new Seledochka(20, "Milky Way", spaceship);
@@ -47,10 +54,30 @@ public class Main {
 
         // Как только Винтик и Шпунтик очутились в лесу со своим вездеходом,
         // на строительную площадку непрерывным потоком начали поступать бревна, брусья, доски, планки, рейки, штакетник и другие пиломатериалы.
-        vintik.seatIn(rover);
+
+        System.out.println(rover.fuelGauge()); // заполненность бака в литрах топлива
+
+
+        weightlessDevice.setCrystal(lunit1);
+        weightlessDevice.scan();
+
+        //vintik.seatIn(rover);
         shpuntik.seatIn(rover);
+        try {
+            rover.tuckIn(101, FuelType.PETROL);
+        } catch (RuntimeException e) {
+            TankOverflowException cause = (TankOverflowException) e.getCause();
+            System.out.println("Излишек составил " + cause.getWaste() + "л");
+        }
+
+        System.out.println(rover.tank.getFullness());
         rover.goToLocation(forest);
+        System.out.println(rover.odometer.getDistanceTravelled());
+        System.out.println(rover.tank.getFullness());
         rover.goToLocation(site);
+        System.out.println(rover.odometer.getDistanceTravelled());
+        System.out.println(rover.tank.getFullness());
+
         shpuntik.clutterSite(Lumber.LOGS, Lumber.BEAMS, Lumber.LATHS, Lumber.BEAMS, Lumber.LATHS, Lumber.BEAMS, Lumber.LATHS);
 
         vintik.clutterSite(Lumber.SLATS, Lumber.LATHS, Lumber.BATTENS);
@@ -64,8 +91,9 @@ public class Main {
         // Увидев, что Винтик и Шпунтик завалили пиломатериалами чуть ли не всю стройплощадку.
         // Знайка велел им прекратить пока это дело и заняться починкой испорченных лунатиками приборов.
         znayka.goToLocation(site);
+        System.out.println(site.searchPerson(znayka));
         znayka.seeSituationOnSite(vintik, shpuntik);
-        znayka.orderToStop(vintik, shpuntik);
+
         lunatic.crashDevices(magnet, weightlessDevice);
         znayka.orderToFix(magnet, vintik, shpuntik);
         znayka.orderToFix(weightlessDevice, vintik, shpuntik);
@@ -84,7 +112,7 @@ public class Main {
 
         // Заменяя в приборе невесомости кристаллы лунита, они обнаружили,
         // что величина зоны невесомости находится в прямой зависимости от величины кристалла: чем больше был кристалл, тем больше была и зона.
-
+        lunatic.crashDevices(weightlessDevice);
         znayka.setCrystal(lunit1, weightlessDevice);
         znayka.replaceCrystal(lunit2, weightlessDevice);
 

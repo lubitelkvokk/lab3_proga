@@ -1,5 +1,6 @@
 package actors;
 
+import actors.exceptions.PersonNotFoundException;
 import devices.Device;
 import items.crystals.LunarCrystal;
 import items.crystals.Lunit;
@@ -30,9 +31,7 @@ public class Znayka extends Person implements Researchers {
     @Override
     public void setCrystal(LunarCrystal lunarCrystal, Device device) {
         System.out.println("Znayka поместил " + lunarCrystal.getClass().getSimpleName() + " в " + device.getClass().getSimpleName());
-        if (device.isServiceability()) {
-            device.setCrystal(lunarCrystal);
-        }
+        device.setCrystal(lunarCrystal);
     }
 
     @Override
@@ -60,25 +59,44 @@ public class Znayka extends Person implements Researchers {
 
 
     public void orderToFix(Device device, Person... people) {
-        System.out.print("Znayka велел ");
-        for (Person p : people) {
-            System.out.print(p.getClass().getSimpleName() + " ");
+        try {
+            for (Person x : people) {
+                if (!getLocation().searchPerson(x)) {
+                    throw new PersonNotFoundException(x.getClass().getSimpleName() + " находится в другой локации");
+                }
+            }
+            System.out.print("Znayka велел ");
+            for (Person p : people) {
+                System.out.print(p.getClass().getSimpleName() + " ");
+            }
+            System.out.println(" починить " + device.getClass().getSimpleName());
+        } catch (PersonNotFoundException e) {
+            e.printStackTrace();
         }
-        System.out.println(" починить " + device.getClass().getSimpleName());
     }
 
     public void orderToStop(Person... people) {
-        System.out.print("Znayka велел ");
-        for (Person p : people) {
-            System.out.print(p.getClass().getSimpleName() + " ");
+        try {
+            for (Person x : people) {
+                if (!getLocation().searchPerson(x)) {
+                    throw new PersonNotFoundException(x.getClass().getSimpleName() + " находится в другой локации");
+                }
+            }
+            System.out.print("Znayka велел ");
+            for (Person p : people) {
+                System.out.print(p.getClass().getSimpleName() + " ");
+            }
+            System.out.println(" остановиться");
+        } catch(PersonNotFoundException e){
+            e.printStackTrace();
         }
-        System.out.println(" остановиться");
+
     }
 
 
     public void seeSituationOnSite(Person... people) {
-        if (location.getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
-            if (location.getFullness()) {
+        if (getLocation().getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
+            if (getLocation().getFullness()) {
                 System.out.print("Znayka увидел, что ");
                 for (Person p : people) {
                     System.out.print(p.getClass().getSimpleName() + " ");
