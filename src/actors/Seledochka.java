@@ -26,9 +26,8 @@ public class Seledochka extends Person implements Researchers {
     @Override
     public void setCrystal(LunarCrystal lunarCrystal, Device device) {
         System.out.println("Seledochka поместилa " + lunarCrystal.getClass().getSimpleName() + " в " + device.getClass().getSimpleName());
-        if (device.isServiceability()) {
-            device.setCrystal(lunarCrystal);
-        }
+        device.setCrystal(lunarCrystal);
+
     }
 
     @Override

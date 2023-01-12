@@ -6,10 +6,10 @@ import items.lumbers.Lumber;
 
 // TODO
 public class Location {
-    private boolean weightless;
     private final int x, y;
     private final StorageLocation storageLocation = new StorageLocation();
     private final TypeOfLocation typeOfLocation;
+    private boolean weightless;
 
     public Location(TypeOfLocation typeOfLocation, int x, int y) {
         this.typeOfLocation = typeOfLocation;
@@ -17,8 +17,15 @@ public class Location {
         this.y = y;
     }
 
+    public Pair getCoords() {
+        return new Pair(x, y);
+    }
+
     public TypeOfLocation getTypeOfLocation() {
         return typeOfLocation;
+    }
+    public Person[] getListOfPeople() {
+        return storageLocation.listOfPeople;
     }
 
     public boolean getWeightless() {
@@ -26,7 +33,7 @@ public class Location {
     }
 
     public void setWeightless(boolean weightless) {
-        System.out.println("На " + this.getClass().getSimpleName() + " действует невесомость. Работа с тяжестями облегчена и ускорена.");
+        System.out.println("На " + typeOfLocation + " действует невесомость. Работа с тяжестями облегчена и ускорена.");
         this.weightless = weightless;
     }
 
@@ -46,6 +53,14 @@ public class Location {
         storageLocation.removeDevice(device);
     }
 
+    public boolean searchPerson(Person person) {
+        for (Person x : storageLocation.listOfPeople) {
+            if (x != null && x.equals(person)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public boolean getFullness() {
         return storageLocation.getFullness();
@@ -80,6 +95,24 @@ public class Location {
 
         Location o = (Location) obj;
         return x == o.x && y == o.y && typeOfLocation == o.typeOfLocation;
+    }
+
+    public static class Pair {
+        double x;
+        double y;
+
+        public Pair(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public double getX() {
+            return x;
+        }
+
+        public double getY() {
+            return y;
+        }
     }
 
 }

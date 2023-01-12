@@ -42,11 +42,11 @@ public class Vintik extends Person implements Inventors, Moveable, Passenger {
     }
 
     public void clutterSite(Lumber... lumber) {
-        if (location.getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
+        if (getLocation().getTypeOfLocation() == TypeOfLocation.CONSTRUCTION_SITE) {
             System.out.println();
             for (Lumber l : lumber) {
-                System.out.println("\nVintik завез " + l.name() + " на " + location.getTypeOfLocation());
-                location.addLumber(l);
+                System.out.println("\nVintik завез " + l.name() + " на " + getLocation().getTypeOfLocation());
+                getLocation().addLumber(l);
             }
             System.out.println();
         }

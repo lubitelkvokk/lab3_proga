@@ -1,5 +1,6 @@
 package devices;
 
+import devices.exceptions.DeviceIsBrokenException;
 import items.crystals.LunarCrystal;
 import items.crystals.Lunit;
 
@@ -10,11 +11,17 @@ public class Magnet extends Device {
     }
 
     public void setCrystal(LunarCrystal lunarCrystal) {
-        if (serviceability) {
+        try {
             this.lunarCrystal = lunarCrystal;
-            if (lunarCrystal instanceof Lunit) {
-                ((Lunit) lunarCrystal).setWeightlessRay();
+            if (serviceability) {
+                if (lunarCrystal instanceof Lunit) {
+                    ((Lunit) lunarCrystal).setWeightlessRay();
+                }
+            } else {
+                throw new DeviceIsBrokenException();
             }
+        } catch (DeviceIsBrokenException e) {
+            e.printStackTrace();
         }
     }
 }

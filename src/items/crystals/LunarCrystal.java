@@ -4,6 +4,7 @@ import items.crystals.properties.*;
 
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 
 public abstract class LunarCrystal {
     private double size;
